@@ -8,7 +8,7 @@ using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Support.UI;
 using WebAddressbookTests;
 
-namespace SeleniumTests
+namespace WebAddressbookTests
 {
     [TestFixture]
     public class AddNewContactTests
@@ -41,7 +41,7 @@ namespace SeleniumTests
         }
 
         [Test]
-        public void TheUntitledTestCaseTest()
+        public void AddNewContactTest()
         {
             OpenMainPage();
             Login(new AccountData("admin", "secret"));
