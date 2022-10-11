@@ -22,7 +22,7 @@ namespace WebAddressbookTests
         public void SetupTest()
         {
             driver = new FirefoxDriver();
-            baseURL = "http://localhost:8080/addressbook/";
+            baseURL = "http://localhost:8080";
             verificationErrors = new StringBuilder();
         }
 
@@ -98,7 +98,7 @@ namespace WebAddressbookTests
 
         private void OpenMainPage()
         {
-            driver.Navigate().GoToUrl(baseURL);
+            driver.Navigate().GoToUrl(baseURL + "/addressbook/");
         }
 
         private bool IsElementPresent(By by)
