@@ -58,7 +58,7 @@ namespace WebAddressbookTests
 
         public ContactHelper UpdateContact()
         {
-            driver.FindElement(By.Name("update"));
+            driver.FindElement(By.Name("update")).Click();
             return this;
         }
 
