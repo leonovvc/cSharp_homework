@@ -32,7 +32,6 @@ namespace WebAddressbookTests
         public ContactHelper GoToAddNewPage()
         {
             driver.FindElement(By.LinkText("add new")).Click();
-            driver.Navigate().GoToUrl("http://localhost:8080/addressbook/edit.php");
             return this;
         }
 
@@ -46,7 +45,6 @@ namespace WebAddressbookTests
         public ContactHelper ReturnToMainPage()
         {
             driver.FindElement(By.LinkText("home page")).Click();
-            driver.Navigate().GoToUrl("http://localhost:8080/addressbook/");
             return this;
         }
 
