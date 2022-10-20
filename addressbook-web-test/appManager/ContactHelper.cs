@@ -20,12 +20,8 @@ namespace WebAddressbookTests
 
         public ContactHelper FillAddNewForm(AddNewContactData main)
         {
-            driver.FindElement(By.Name("firstname")).Click();
-            driver.FindElement(By.Name("firstname")).Clear();
-            driver.FindElement(By.Name("firstname")).SendKeys(main.FirstName);
-            driver.FindElement(By.Name("lastname")).Click();
-            driver.FindElement(By.Name("lastname")).Clear();
-            driver.FindElement(By.Name("lastname")).SendKeys(main.LastName);
+            Type(By.Name("firstname"), main.FirstName);
+            Type(By.Name("lastname"), main.LastName);
             return this;
         }
 
