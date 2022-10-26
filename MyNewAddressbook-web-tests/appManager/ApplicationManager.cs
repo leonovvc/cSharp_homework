@@ -36,7 +36,7 @@ namespace WebAddressbookTests
             contactHelper = new ContactHelper(this);
         }
 
-         ~ApplicationManager()
+        ~ApplicationManager()
         {
             try
             {
@@ -49,41 +49,41 @@ namespace WebAddressbookTests
         }
         public static ApplicationManager GetInstance()
         {
-            if (! app.IsValueCreated)
+            if (!app.IsValueCreated)
             {
                 app.Value = new ApplicationManager();
             }
             return app.Value;
         }
 
-        public IWebDriver Driver 
+        public IWebDriver Driver
         {
-            get 
-            { 
+            get
+            {
                 return driver;
             }
         }
 
         public LoginHelper Auth
         {
-            get 
-            { 
+            get
+            {
                 return loginHelper;
             }
         }
 
         public NavigationHelper NavigationHelper
         {
-            get 
+            get
             {
                 return navigationHelper;
-            } 
+            }
         }
 
-        public GroupHelper GroupHelper 
+        public GroupHelper GroupHelper
         {
             get
-            { 
+            {
                 return groupHelper;
             }
         }
