@@ -9,12 +9,21 @@ namespace WebAddressbookTests
 {
     [TestFixture]
 
-    public class ContactDeleteTests : TestBase
+    public class ContactDeleteTests : AuthTestBase
     {
         [Test]
-
         public void ContactDeleteTest()
         {
+            app.ContactHelper.DeleteContact(1);
+        }
+
+        [Test]
+        public void CheckAndDeleteTest()
+        {
+            if (!app.ContactHelper.FoundGroup())
+            {
+                app.ContactHelper.CreateContact();
+            }
             app.ContactHelper.DeleteContact(1);
         }
     }

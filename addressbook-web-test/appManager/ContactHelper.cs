@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Support.UI;
 
@@ -20,8 +19,8 @@ namespace WebAddressbookTests
 
         public ContactHelper FillAddNewForm(AddNewContactData main)
         {
-            Type(By.Name("firstname"), main.FirstName);
-            Type(By.Name("lastname"), main.LastName);
+                Type(By.Name("firstname"), main.FirstName);
+                Type(By.Name("lastname"), main.LastName);
             return this;
         }
 
@@ -74,6 +73,25 @@ namespace WebAddressbookTests
             return this;
         }
 
+        public ContactHelper CreateContact()
+        { 
+            GoToAddNewPage();
+            AddNewContactData main = new AddNewContactData("Tester", "Testovich");
+            FillAddNewForm(main);
+            SubmitCreationContact();
+            ReturnToMainPage();
+            return this;
+        }
+        
+        public ContactHelper ModifyContact()
+        {
+            InitModify(1);
+            AddNewContactData main = new AddNewContactData("NewTest", "NewTestov");
+            FillAddNewForm(main);
+            UpdateContact();
+            return this;
+        }
+
         public ContactHelper EditContact(int v)
         {
             InitModify(v);
@@ -83,6 +101,12 @@ namespace WebAddressbookTests
         public ContactHelper FillAddNewFormData(AddNewContactData main)
         {
             return this;
+        }
+
+        public bool FoundGroup()
+        {
+            manager.NavigationHelper.GoToHomePage();
+            return IsElementPresent(By.Name("selected[]"));
         }
     }
 }
